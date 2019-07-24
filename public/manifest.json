@@ -8,6 +8,14 @@
       "type": "image/x-icon"
     }
   ],
+  "images": [
+    {
+      "src": "me.jpeg"
+    },
+    {
+      "src": "right-point.png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
