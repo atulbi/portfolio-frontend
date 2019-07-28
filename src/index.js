@@ -1,31 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import './index.css';
 
 // Project Component and containers
 import Layout from './Layout/Layout';
 import Main from './Layout/Main/Main';
 import Sidebar from './Layout/Aux/Sidebar';
+import GlobalState from './context/GlobalState';
+import About from './Pages/About';
+import drawerContext from './context/drawer-context';
+import Work from './Pages/Work';
+import ScrollToTop from './Helpers/ScrollToTop';
+import Experiences from './Pages/Experiences';
 
 // Font Awesome icons
 const data = [
     {
         iconClass: 'fas fa-user-graduate',
-        text: 'ABES Engineering College',
+        text: 'About',
     }, {
         iconClass: 'fas fa-map-marker',
-        text: '3/1361 ,Vasundhara, Ghaziabad ,U.P. ,India',
-    }, {
-        iconClass: 'fas fa-envelope-open-text',
-        text: 'atulbisht26@gmail.com',
+        text: 'Work',
     }, {
         iconClass: 'fas fa-mobile-alt',
-        text: '+91 8800822609',
+        text: 'Experiences',
+    }, {
+        iconClass: 'fas fa-envelope-open-text',
+        text: 'Skills',
+    }, {
+        iconClass: 'fas fa-mobile-alt',
+        text: 'Contact',
     }
 ]
 
 class Application extends React.Component {
-
+    static contextType = drawerContext;
 
     render() {
         const iconStyle = {
@@ -38,26 +48,38 @@ class Application extends React.Component {
             height: 'auto'
         }
         const textStyle = {
+            margin: '0.15rem auto',
             color: 'white',
             fontFamily: "'Kosugi Maru', sans-serif",
             letterSpacing: '2px',
+            fontSize: '2.2rem',
+            fontWeight: 'bold'
         }
 
         // const arrow = this.state.o
-
         return (
-            <Layout data={data}>
-                <Sidebar>
-                    <i className="fas fa-angle-right" style={iconStyle}></i>
-                    <img style={imageStyle} className="ui small centered circular image" src="me.jpeg" alt="" data-tooltip="Add users to your feed" />
-                    <h1 style={textStyle} >ATUL BISHT</h1>
-                    <img src="right-point.png" alt="" style={{height: 100}}/>
-                </Sidebar>
-                <Main>
-                    <p>Excepteur culpa eu adipisicing enim ipsum duis. Anim nulla aliqua fugiat pariatur. Excepteur eu ea excepteur dolor fugiat occaecat aliqua culpa velit deserunt nisi tempor ad.Enim amet dolore aute laborum ad consectetur non quis ex nostrud sit proident. Eu sint elit cillum exercitation adipisicing ullamco reprehenderit amet. Ipsum et esse aliquip incididunt. Ad esse minim occaecat eiusmod nulla qui adipisicing nisi adipisicing. Id in fugiat dolore dolor amet proident mollit.Occaecat adipisicing fugiat enim reprehenderit irure dolore mollit reprehenderit in dolore proident anim. Enim nisi nostrud duis adipisicing minim deserunt ipsum. Veniam ullamco eiusmod adipisicing officia culpa laborum.</p>
-                </Main>
-
-            </Layout>
+            <GlobalState>
+                <Router>
+                    <Layout data={data}>
+                        <Sidebar>
+                            <i className="fas fa-angle-right" style={iconStyle}></i>
+                            <img style={imageStyle} className="ui small centered circular image" src="me.jpeg" alt="" data-tooltip="Add users to your feed" />
+                            <p style={textStyle} >ATUL BISHT</p>
+                            <img src="right-point.png" alt="" className={"rightPoint "} />
+                        </Sidebar>
+                        <Main>
+                            <ScrollToTop>
+                                <Route exact path="/" render={() => (<Redirect to="/about" />)} />
+                                <Route exact path="/about" render={() => (<About />)}></Route>
+                                <Route exact path="/work" render={() => (<Work />)}></Route>
+                                <Route exact path="/experiences" render={() => (<Experiences/>)} ></Route>
+                                <Route exact path="/skills" ></Route>
+                                <Route exact path="/contact" ></Route>
+                            </ScrollToTop>
+                        </Main>
+                    </Layout>
+                </Router>
+            </GlobalState>
         );
     }
 }

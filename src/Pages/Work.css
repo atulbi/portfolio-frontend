@@ -1,0 +1,36 @@
+.Work-font {
+    font-family: 'Dosis', sans-serif;
+    color: #424242;
+    text-align: center;
+}
+.Page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #EFEFEF;
+    padding-bottom: 3vmax;
+    padding-left: 20vmax;
+    padding-right: 20vmax;
+}
+
+.Project-page {
+    height: 100vmin;
+    padding: 3vmax 10vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #EFEFEF;
+    /* This will be dynamically loaded from backend */
+    background: #3DAEE9;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile {
+        padding-left: 2vmax;
+        padding-right: 2vmax;
+    }
+    .Project-page {
+        height: 100vmin;
+        padding: 3vmax 2vmax;
+    }
+}

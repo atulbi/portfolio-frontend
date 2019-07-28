@@ -2,20 +2,34 @@ import React from 'react';
 import './Layout.css';
 import LargeSidebar from './Sidebar/LargeSidebar';
 
+
+import drawerContext from './../context/drawer-context';
+
 class Layout extends React.Component {
 
-    state = {
-        open: false,
-    }
-
-    css = ['left', 'mobile-width']
+    static contextType = drawerContext;
+    static deviceTypeMobile;
+    css = ['left']
     right = ['right']
 
-    hand = () => {
+    componentWillMount() {
+        this.deviceTypeMobile = window.screen.width <= 700 ? 1 : 0;
+        if (this.deviceTypeMobile) {
+            this.css.push("mobile-width");
+        }
+    }
 
-        this.setState({
-            open: true,
-        })
+    componentDidMount() {
+        if (!this.deviceTypeMobile) {
+            this.context.switchDrawer();
+        }
+    }
+
+    hand = () => {
+        if (!this.deviceTypeMobile) {
+            return;
+        }
+        this.context.switchDrawer();
         if (this.css.includes('mobile-hover-exit')) {
             this.css.pop();
         }
@@ -24,12 +38,13 @@ class Layout extends React.Component {
     }
 
     handexit = () => {
+        if (!this.deviceTypeMobile) {
+            return;
+        }
         this.css.pop();
         this.css.push('mobile-hover-exit');
         this.right.pop();
-        this.setState({
-            open: false,
-        });
+        this.context.switchDrawer();
     }
 
     render() {
@@ -39,17 +54,20 @@ class Layout extends React.Component {
 
         // const show = this.state.open || window.screen.availWidth >= 6000 ? sidebar[1] : sidebar[0];
         let show = sidebar[0];
-        // console.log(show);
+        let right = (
+            <div className={this.right.join(" ")} >
+                {sidebar[1]}
+            </div>
+        );
+        console.log(right);
         return (
             <div className={'grid mobile-grid'}>
-                <div onMouseEnter={this.hand} onMouseLeave={this.handexit} className={this.css.join(' ')} state={this.state}>
-                    <LargeSidebar data={this.props.data} state={this.state}>
+                <div onMouseEnter={this.hand} onMouseLeave={this.handexit} className={this.css.join(' ')}>
+                    <LargeSidebar data={this.props.data}>
                         {show.props.children}
                     </LargeSidebar>
                 </div>
-                <div className={this.right.join(" ")} >
-                    {sidebar[1]}
-                </div>
+                {right}
             </div>
         );
     }

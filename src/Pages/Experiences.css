@@ -1,0 +1,31 @@
+.Color-change {
+    background: #F4EEEE;
+    transition-property: backgorund;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    animation-name: colorChange;
+    animation-duration: 7080ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+}
+.Exp-font {
+    font-family: 'Dosis', sans-serif;
+    color: #424242;
+}
+
+@keyframes colorChange {
+    0% {
+        background: #F4EEEE;
+    } 
+    19% {
+        background: #EEDD4E;
+    } 
+    60% {
+        background: #4499BB;
+    } 
+    92%{
+        background: #F4EEEE;
+    }
+}
+
+/* EEDD4E */

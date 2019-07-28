@@ -1,13 +1,50 @@
-
-
 .textSize {
-    font-size: 15px;
-    z-index: -1;
+    font-size: inherit;
+    font-family:'Dosis', sans-serif ;
+}
+.subIcon {
+    justify-self: flex-start;
+    flex-grow: 0;
+    padding: 5px 15px 5px 50px;
+}
+
+.disableAnchor {
+    color: #BDBDBD;
+    font-size: 1.2rem;
+    min-height: 50px;
+}
+.selected {
+    color:#FFFFFF;
+    font-weight: 700;
+}
+
+.mybtn:hover {
+    background: #ffffff11;
+    color: #EEEEEE;
+    animation-name: reduceSize;
+    animation-duration: 600ms;
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1); 
+}
+
+@keyframes reduceSize {
+    0% {
+        font-size: 1.2rem;
+    } 50% {
+        font-size: 1.15rem;
+    } 100% {
+        font-size: 1.2rem;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .textSize {
-        font-size: 12px;
+        font-size: inherit;
         z-index: -1;
+    }
+
+    .subIcon {
+        flex-grow: 0;
+        justify-self: flex-end;
+        padding: 5px 15px;
     }
 }

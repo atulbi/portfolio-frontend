@@ -4,3 +4,27 @@ html, body, #root {
   padding: 0px;
   overflow: hidden;
 }
+
+.rightPoint {
+  height: 100px;
+  transition-property: height;
+  transition-delay: 0ms;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 400ms;
+}
+
+.bigBitmoji {
+  height: 200px;
+}
+
+@media only screen and (max-height: 800px) {
+  .bigBitmoji {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-height: 580px) {
+  .bigBitmoji {
+    height: 100px;
+  }
+} 

@@ -1,0 +1,81 @@
+.right-container {
+    margin: 3% 10%;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.heading-text {
+    margin-left: 20vmin;
+    font-size: 3vmin;
+    font-family: 'Dosis', sans-serif;
+    color: #424242;
+}
+
+.what-i-can-do-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "img0 img0 txt0 txt0 txt0"
+    "txt1 txt1 txt1 img1 img1";
+    color: #424242;
+    grid-column-gap: 5%;
+    grid-row-gap: 15%;
+    font-family: 'Bree Serif', serif;
+    margin-bottom: 60px;
+}
+.header-grid {
+    font-size: 4vmin;
+}
+.text-of-grid {
+    font-size: 3vmin;
+    font-family: 'Dosis', sans-serif;
+}
+.img-of-grid {
+    height: 12vmax;
+    /* width: 80%; */
+}
+.item0 {
+    grid-area: img0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item1 {
+    grid-area: txt0;
+
+}
+.item2 {
+    grid-area: txt1;
+}
+.item3 {
+    grid-area: img1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .right-container {
+        margin: 3% 3%;
+    }
+
+    .what-i-can-do-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 3%;
+        grid-template-areas: "img0"
+        "txt0"
+        "img1"
+        "txt1";
+    }
+    .text-of-grid {
+        font-size: 4.5vmin;
+        font-family: 'Dosis', sans-serif;
+    }
+    .heading-text {
+        margin-left: 0vmin;
+        font-size: 4.5vmin;
+    }
+}

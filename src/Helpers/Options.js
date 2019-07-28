@@ -1,65 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './options.css';
 import './../Layout/Layout.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import drawerContext from './../context/drawer-context';
+import { NavLink, withRouter } from 'react-router-dom';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Options = (props) => {
-
+    let [selectedKey, setSelectedKey] = useState(0);
     const iconStyle = {
-        fontSize: '20px',
-        flexGrow: '1',
+        fontSize: 'inherit',
         textAlign: 'right',
-        padding: '5px 15px',
-        margin: '5px 0px'
+        margin: '0.75rem 0px',
     }
     const textStyle = {
-        flexGrow: '3',
-        // flexShrink: '1',
         textAlign: 'left',
-
         margin: '5px 0px',
         textStyle: "'Kosugi Maru', sans-serif",
         letterSpacing: '2px',
     }
 
     return (
-        <div style={{
-            display: 'flex',
-            alignContent: 'center',
-            flexDirection: 'row'
-        }}>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                flexGrow: '1',
-            }}>
-                {props.data.map((element, index) => {
-                    return (
-                        <i className={element.iconClass + ' '} style={iconStyle} key={index}></i>
-                    )
-                }
-                )}
-            </div>
+        <drawerContext.Consumer>
             {
-                props.state.open
-                    ?
+                (context) => (
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        flexGrow: '1',
                     }}>
                         {props.data.map((element, index) => {
                             return (
-                                <p style={textStyle} className="textSize" key={index}>
-                                    {element.text}
-                                </p>
+                                <NavLink to={element.text.toLowerCase()}
+                                    className={"disableAnchor mybtn " + (selectedKey === index ? "selected" : "")}
+                                    key={index} onClick={() => { setSelectedKey(index) }}   
+                                >
+                                    <div className="" style={{ display: 'flex' }}>
+                                        <i className={element.iconClass + ' subIcon'} style={iconStyle} ></i>
+                                        {context.open ?
+                                            <div className="" style={{ flexGrow: 1, alignSelf: 'center' }}>
+                                                <p style={textStyle} className="textSize">
+                                                    {element.text}
+                                                </p>
+                                            </div> :
+                                            <div></div>
+                                        }
+                                    </div>
+                                </NavLink>
                             )
-                        })}
-                    </div> :
-                    <div></div>
+                        }
+                        )}
+                    </div>
+                )
             }
-        </div >
+        </drawerContext.Consumer>
     )
 }
 
-export default Options;
+export default withRouter(Options);

@@ -1,10 +1,9 @@
 .grid {
   height: 100%;
   display: grid;
-  /* grid-template-columns: 30% 70%; */
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 75%;
   grid-template-areas: "header main";
-  background: #eee;
+  background: #ffffff;
 }
 
 @keyframes swipeleft {
@@ -32,7 +31,7 @@
   position: fixed;
   text-align: center;
   height: 100%;
-  width: 30%;
+  width: 25%;
   color: #eee;
 }
 
@@ -55,7 +54,7 @@
     grid-template-columns: 50px auto;
   }
   .mobile-right-translate {
-    transform: translateX(70%);
+    transform: translateX(65%);
   }
 }
 
@@ -63,10 +62,8 @@
   height: 100%;
   grid-column-start: 2;
   grid-column-end: col-2end;
-  padding-top: 10px;
-  padding-left: 10px;
   color: #212121;
-  overflow-y: visible;
+  overflow-y: scroll;
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -76,7 +73,7 @@
 
 .fadeword-enter .fadeword-enter-active {
   opacity: 1;
-  transition: opacity 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
   
 }
 
@@ -87,5 +84,5 @@
 .fadeword-leave .fadeword-leave-active {
   transition-delay: 1s;
   opacity: 0.01;
-  transition: opacity 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
