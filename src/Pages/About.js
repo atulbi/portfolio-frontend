@@ -41,8 +41,8 @@ const About = (props) => {
             </div>
             <h1 style={{ fontSize: '8vmin', fontFamily: 'inherit', letterSpacing: 2 }}>What I've been up to</h1>
             {achievemet.map((data, index) => (
-                <div className="ui vertical segment text-of-grid" style={{ fontSize: '2.75vmin' }} key={index}>
-                    <p>{data}</p>
+                <div className="ui vertical segment" key={index}>
+                    <p className="text-of-grid" style={{color: "#424242"}}>{data}</p>
                 </div>
             ))}
         </div>
