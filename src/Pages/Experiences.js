@@ -24,7 +24,7 @@ const educationData = [{
 
 const Experiences = (props) => {
     // eslint-disable-next-line no-useless-concat
-    const name = "experiences.gif" + "?a=" + Math.random();
+    const name = "experiences.gif";
     return (
         <div className="Exp-font">
             <div className="Page-header Color-change mobile" style={{ textAlign: 'center' }}>
