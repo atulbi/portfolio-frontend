@@ -1,12 +1,6 @@
 import React from 'react';
 import './About.css';
-
-const achievemet = [
-    "Achieved Highest Rating of 2024 (5 Star ) on codechef.",
-    "Global 105 rank in Codechef May Challenge 2018 Division 1.",
-    "Solved over 400+ problems on online judges such as Codechef, Codeforces, Hackerearth.",
-    "5th Team Rank in \"Battle of Brains\" Coding contest held on Codechef by ABES Engineering College"
-]
+import globalContext from './../context/drawer-context';
 
 const About = (props) => {
     return (
@@ -40,11 +34,26 @@ const About = (props) => {
                 <div className="item3"><img className="img-of-grid" src="responsive_website.gif" alt=""></img></div>
             </div>
             <h1 style={{ fontSize: '8vmin', fontFamily: 'inherit', letterSpacing: 2 }}>What I've been up to</h1>
-            {achievemet.map((data, index) => (
+            <globalContext.Consumer>
+                {
+                    (data) => (
+                        <React.Fragment>
+                            {
+                                data.achievements.map((data, index) => (
+                                    <div className="ui vertical segment" key={index}>
+                                        <p className="text-of-grid" style={{ color: "#424242" }}>{data.line}</p>
+                                    </div>
+                                ))
+                            }
+                        </React.Fragment>
+                    )
+                }
+            </globalContext.Consumer>
+            {/* {achievemet.map((data, index) => (
                 <div className="ui vertical segment" key={index}>
-                    <p className="text-of-grid" style={{color: "#424242"}}>{data}</p>
+                    <p className="text-of-grid" style={{ color: "#424242" }}>{data}</p>
                 </div>
-            ))}
+            ))} */}
         </div>
     )
 }

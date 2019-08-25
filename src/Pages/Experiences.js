@@ -2,22 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './Work.css';
 import './Experiences.css';
-import './About.css'
-
-const data = [{
-    company: "Beadcore Infotech Private Limited",
-    type: "Internship",
-    duration: "June 2019 - Present",
-    description: ["My daily tasks include writing and cross-compiling code for Neural Processing Unit in C++.",
-        "I tested performance of multiple machine learning model on NPU's."]
-},
-{
-    company: "Beadcore Infotech Private Limited",
-    type: "Internship",
-    duration: "June 2019 - Present",
-    description: ["My daily tasks include writing and cross-compiling code for Neural Processing Unit in C++.",
-        "I tested performance of multiple machine learning model on NPU's."]
-}]
+import './About.css';
+import globalContext from './../context/drawer-context';
 
 const educationData = [{
     school: "ABES Engineering College",
@@ -37,8 +23,8 @@ const educationData = [{
 }]
 
 const Experiences = (props) => {
+    // eslint-disable-next-line no-useless-concat
     const name = "experiences.gif" + "?a=" + Math.random();
-    console.log(name);
     return (
         <div className="Exp-font">
             <div className="Page-header Color-change mobile" style={{ textAlign: 'center' }}>
@@ -53,18 +39,26 @@ const Experiences = (props) => {
                     <p>Careers</p>
                 </div>
                 <div className="Tab-box-right">
-                    {
-                        data.map((company, index) => (
-                            <div className="ui vertical segment" key={index}>
-                                <p className="header-grid"><span style={{fontFamily: "'Bree Serif', serif"}}>{company.company}</span> | {company.type} | {company.duration}</p>
-                                {company.description.map((line, index) => (
-                                    <p className="text-of-grid" style={{marginBottom: '3px'}}>
-                                        {line}
-                                    </p>
-                                ))}
-                            </div>
-                        ))
-                    }
+                    <globalContext.Consumer>
+                        {
+                            (data) => (
+                                <React.Fragment>
+                                    {
+                                        data.jobs.map((company, index) => (
+                                            <div className="ui vertical segment" key={index}>
+                                                <p className="header-grid"><span style={{fontFamily: "'Bree Serif', serif"}}>{company.company}</span> | {company.typeOfJob} | {company.duration}</p>
+                                                {company.description.map((line, index) => (
+                                                    <p className="text-of-grid" style={{marginBottom: '3px'}} key={index}>
+                                                        {line}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        ))
+                                    }
+                                </React.Fragment>
+                            )
+                        }
+                    </globalContext.Consumer>
                 </div>
                 <div className="Tab-box-left" style={{fontSize: '6vmin'}}>
                     <p>Education</p>
@@ -75,7 +69,7 @@ const Experiences = (props) => {
                             <div className="ui vertical segment" key={index}>
                                 <p className="header-grid"><span style={{fontFamily: "'Bree Serif', serif"}}>{school.school}</span> | {school.type} | {school.duration}</p>
                                 {school.description.map((line, index) => (
-                                    <p className="text-of-grid" style={{marginBottom: '3px'}}>
+                                    <p className="text-of-grid" style={{marginBottom: '3px'}} key={index}>
                                         {line}
                                     </p>
                                 ))}

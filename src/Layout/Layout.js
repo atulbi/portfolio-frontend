@@ -25,8 +25,10 @@ class Layout extends React.Component {
         }
     }
 
-    hand = () => {
-        if (!this.deviceTypeMobile) {
+    hand = (e) => {
+        // console.log(e);
+        e.stopPropagation();
+        if (!this.deviceTypeMobile || this.context.open) {
             return;
         }
         this.context.switchDrawer();
@@ -38,7 +40,7 @@ class Layout extends React.Component {
     }
 
     handexit = () => {
-        if (!this.deviceTypeMobile) {
+        if (!this.deviceTypeMobile || !this.context.open) {
             return;
         }
         this.css.pop();
@@ -50,19 +52,16 @@ class Layout extends React.Component {
     render() {
 
         const sidebar = React.Children.toArray(this.props.children);
-        // console.log(sidebar)
 
-        // const show = this.state.open || window.screen.availWidth >= 6000 ? sidebar[1] : sidebar[0];
         let show = sidebar[0];
         let right = (
             <div className={this.right.join(" ")} >
                 {sidebar[1]}
             </div>
         );
-        console.log(right);
         return (
             <div className={'grid mobile-grid'}>
-                <div onMouseEnter={this.hand} onMouseLeave={this.handexit} className={this.css.join(' ')}>
+                <div onClick={this.hand} onMouseLeave={this.handexit} className={this.css.join(' ')}>
                     <LargeSidebar data={this.props.data}>
                         {show.props.children}
                     </LargeSidebar>

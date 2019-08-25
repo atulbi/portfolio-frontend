@@ -33,6 +33,7 @@
   height: 100%;
   width: 25%;
   color: #eee;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 600px) {

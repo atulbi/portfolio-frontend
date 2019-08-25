@@ -19,15 +19,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #EFEFEF;
     /* This will be dynamically loaded from backend */
-    background: #3DAEE9;
+    /* color: #EFEFEF; */
+    /* background: #3DAEE9; */
 }
 
 @media only screen and (max-width: 600px) {
     .mobile {
-        padding-left: 2vmax;
-        padding-right: 2vmax;
+        padding-left: 2vmax !important;
+        padding-right: 2vmax !important;
     }
     .Project-page {
         height: 100vmin;

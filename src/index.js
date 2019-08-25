@@ -13,24 +13,23 @@ import drawerContext from './context/drawer-context';
 import Work from './Pages/Work';
 import ScrollToTop from './Helpers/ScrollToTop';
 import Experiences from './Pages/Experiences';
+import Skills from './Pages/Skills';
+import Footer from './Helpers/Footer';
 
 // Font Awesome icons
 const data = [
     {
-        iconClass: 'fas fa-user-graduate',
+        iconClass: 'fas fa-user-circle',
         text: 'About',
     }, {
-        iconClass: 'fas fa-map-marker',
+        iconClass: 'fas fa-code',
         text: 'Work',
     }, {
-        iconClass: 'fas fa-mobile-alt',
+        iconClass: 'fas fa-id-badge',
         text: 'Experiences',
     }, {
-        iconClass: 'fas fa-envelope-open-text',
+        iconClass: 'fas fa-tools',
         text: 'Skills',
-    }, {
-        iconClass: 'fas fa-mobile-alt',
-        text: 'Contact',
     }
 ]
 
@@ -62,7 +61,7 @@ class Application extends React.Component {
                 <Router>
                     <Layout data={data}>
                         <Sidebar>
-                            <i className="fas fa-angle-right" style={iconStyle}></i>
+                            <i style={iconStyle}></i>
                             <img style={imageStyle} className="ui small centered circular image" src="me.jpeg" alt="" data-tooltip="Add users to your feed" />
                             <p style={textStyle} >ATUL BISHT</p>
                             <img src="right-point.png" alt="" className={"rightPoint "} />
@@ -72,10 +71,10 @@ class Application extends React.Component {
                                 <Route exact path="/" render={() => (<Redirect to="/about" />)} />
                                 <Route exact path="/about" render={() => (<About />)}></Route>
                                 <Route exact path="/work" render={() => (<Work />)}></Route>
-                                <Route exact path="/experiences" render={() => (<Experiences/>)} ></Route>
-                                <Route exact path="/skills" ></Route>
-                                <Route exact path="/contact" ></Route>
+                                <Route exact path="/experiences" render={() => (<Experiences />)} ></Route>
+                                <Route exact path="/skills" render={() => (<Skills />)}></Route>
                             </ScrollToTop>
+                            <Footer />
                         </Main>
                     </Layout>
                 </Router>

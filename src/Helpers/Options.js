@@ -26,12 +26,13 @@ const Options = (props) => {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
+                        flexGrow: 3
                     }}>
                         {props.data.map((element, index) => {
                             return (
                                 <NavLink to={element.text.toLowerCase()}
                                     className={"disableAnchor mybtn " + (selectedKey === index ? "selected" : "")}
-                                    key={index} onClick={() => { setSelectedKey(index) }}   
+                                    key={index} onClick={(e) => { e.stopPropagation();setSelectedKey(index);}}   
                                 >
                                     <div className="" style={{ display: 'flex' }}>
                                         <i className={element.iconClass + ' subIcon'} style={iconStyle} ></i>
