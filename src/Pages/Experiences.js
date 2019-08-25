@@ -28,7 +28,7 @@ const Experiences = (props) => {
     return (
         <div className="Exp-font">
             <div className="Page-header Color-change mobile" style={{ textAlign: 'center' }}>
-                <img src={name} alt="" style={{ height: '30vmax' }}></img>
+                <img src={name} alt="" style={{ height: '25vmax' }}></img>
                 <p style={{ fontSize: '7vmax', fontWeight: 400, fontFamily: 'inherit', marginBottom: 10 }}>Experiences</p>
                 <p style={{ fontSize: '1.75vmax' }}>
                     " Notice the small things. The rewards are inversely proportional. "
