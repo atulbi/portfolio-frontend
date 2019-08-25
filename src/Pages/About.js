@@ -20,10 +20,15 @@ const About = (props) => {
                     (Popular Alternative to GNOME on Ubuntu) from April 2019. Here, I learned how to work with large codebases and applications with millions of user.
                 </p>
                 <p>
-                    I love developing Web Applications. I've done multiple projects with MERN stack including this portfolio. 
+                    I love developing Web Applications. I've done multiple projects with MERN stack including this portfolio.
                     Refer to Work section for more of my work.
                 </p>
-
+                <h1 style={{fontFamily: "inherit", fontWeight: 400, color: "#424242" }} className="header-grid">LINKS :</h1>
+                <div className="cp_link">
+                    <a className="link_item" href="https://codechef.com/users/atulbi" target="_blank" rel="noopener noreferrer"><img src="codechef.png" alt="" ></img></a>
+                    <a className="link_item" href="https://codeforces.com/profile/atulbi" target="_blank" rel="noopener noreferrer"><img src="codeforces.png" alt=""></img></a>
+                    <a className="link_item" href="https://drive.google.com/file/d/13SXVn5gULGyegG390TVU3mhyFKhIM1Xv/view" target="_blank" rel="noopener noreferrer"><img src="resume.jpg" alt=""></img></a>
+                </div>
             </div>
             <h1 style={{ fontSize: '8vmin', fontFamily: 'inherit', letterSpacing: 2 }}>What I Can Do</h1>
             <div className="what-i-can-do-grid">
