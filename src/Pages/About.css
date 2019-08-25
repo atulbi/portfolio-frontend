@@ -5,9 +5,13 @@
 
 .heading-text {
     margin-left: 20vmin;
+}
+
+.heading-text p {
     font-size: 3vmin;
     font-family: 'Dosis', sans-serif;
     color: #424242;
+    margin-bottom: 10px;
 }
 
 .what-i-can-do-grid {
@@ -76,6 +80,8 @@
     }
     .heading-text {
         margin-left: 0vmin;
+    }
+    .heading-text p {
         font-size: 4.5vmin;
     }
     .header-grid {

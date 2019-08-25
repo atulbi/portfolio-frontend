@@ -9,12 +9,22 @@ const About = (props) => {
             <h1 style={{ fontSize: '7vmin', fontFamily: 'inherit' }}>I am Atul Bisht</h1>
             {/* <br/> */}
             <h1 style={{ fontSize: '8vmin', fontFamily: 'inherit', letterSpacing: 5 }}>ABOUT</h1>
-            <p className="heading-text">
-                Morten Rand-Hendriksen is a senior staff author at lynda.com at LinkedIn and the Director of Pink & Yellow Media Inc. – a digital media company based in Burnaby, BC.
-   This blog was created as a learning-through-teaching experiment and now functions as a web development and design blog focusing mainly on Expression Web, CSS and WordPress customization.
-   Morten is also the co-creator of several startups, a co-organizer of the Vancouver WordPress Meetup Group and WordCamp Vancouver, and the creator of the 12×12 Vancouver Photo Marathon.
-   You can stalk him on Twitter @mor10 and like Pink & Yellow Media on Facebook.
-             </p>
+            <div className="heading-text">
+                <p>
+                    I am a final year undergraduate and currently pursuing a major in Computer Science and Engineering from ABES Engineering College,
+                    Ghaziabad, India. I love solving problems based on Data Structures, Algorithms and Mathematics.
+                    I participate in Competitive Programming platforms like Codechef, Codeforces.
+                </p>
+                <p>
+                    I occasionally contribute to Open Source Organizations like KDE. I am maintaining Touchpad Config Module on KDE Plasma Desktop Environment
+                    (Popular Alternative to GNOME on Ubuntu) from April 2019. Here, I learned how to work with large codebases and applications with millions of user.
+                </p>
+                <p>
+                    I love developing Web Applications. I've done multiple projects with MERN stack including this portfolio. 
+                    Refer to Work section for more of my work.
+                </p>
+
+            </div>
             <h1 style={{ fontSize: '8vmin', fontFamily: 'inherit', letterSpacing: 2 }}>What I Can Do</h1>
             <div className="what-i-can-do-grid">
                 <div className="item0">
@@ -23,7 +33,7 @@ const About = (props) => {
                 <div className="item1">
                     <p className="header-grid">Develop What You Need</p>
                     <p className="text-of-grid">
-                        I'm a developer, so I know how to create your website to run across devices using the latest technologies available.                    </p>
+                        I'm a developer, so I know how to create your application to run across multiple devices and architectures using the latest technologies available.                    </p>
                 </div>
                 <div className="item2">
                     <p className="header-grid" >Design What You Want</p>
