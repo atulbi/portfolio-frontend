@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import './About.css';
 import './Work.css';
 import globalContext from './../context/drawer-context';
-import { Dimmer, Loader, Segment } from 'semantic-ui-react';
+import { Dimmer, Loader} from 'semantic-ui-react';
 
 
 const Work = (props) => {
